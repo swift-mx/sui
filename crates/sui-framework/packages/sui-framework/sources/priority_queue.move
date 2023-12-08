@@ -135,6 +135,10 @@ module sui::priority_queue {
         res
     }
 
+    public fun length<T: drop>(pq: &PriorityQueue<T>): u64 {
+        vector::length(&pq.entries)
+    }
+
     #[test]
     fun test_pq() {
         let h = new(create_entries(vector[3,1,4,2,5,2], vector[10, 20, 30, 40, 50, 60]));
